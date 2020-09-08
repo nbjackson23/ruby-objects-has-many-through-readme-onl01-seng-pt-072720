@@ -11,7 +11,7 @@ class Customer
   end
   
   def self.all
-    @all
+    @@all
   end
   
   def meals
