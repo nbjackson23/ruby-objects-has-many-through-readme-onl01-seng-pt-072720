@@ -17,6 +17,7 @@ class Customer
   def meals
     Meal.all.select do |meal|
       meal.customer == self
+    end
   end
   
   def waiters
@@ -26,7 +27,7 @@ class Customer
   end
   
   def new_meal(waiter, total, tip=0)
-    Meal.new(waiter, self, total, tip)
+    Meal.new(self, waiter, total, tip)
   end
   
   def new_meal_20_percent(waiter, total)
@@ -35,12 +36,18 @@ class Customer
   end
   
   def self.oldest_customer
-    oldest_age = customer.age
-    oldest_customer = customer
+    oldest_age = 0
+    oldest_customer = nil
+    self.all.each do |customer|
+      if customer.age > oldest_age
+        oldest_age = customer.age
+        oldest_customer = customer
+        end
+      end
+    end
+    oldest_customer
   end
+ 
 end
-  oldest_customer
-end
-
   
 
