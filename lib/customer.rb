@@ -11,7 +11,7 @@ class Customer
   end
   
   def self.all
-    @all
+    @@all
   end
   
   def meals
@@ -27,7 +27,7 @@ class Customer
   end
   
   def new_meal(waiter, total, tip=0)
-    Meal.new(self, waiter, total, tip)
+    Meal.new(waiter, self, total, tip)
   end
   
   def new_meal_20_percent(waiter, total)
