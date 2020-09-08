@@ -2,7 +2,7 @@ class Customer
   
   attr_accessor :name, :age
   
-  @all = []
+  @@all = []
   
   def initialize (name, age)
     @name = name
@@ -11,7 +11,7 @@ class Customer
   end
   
   def self.all
-    @@all
+    @all
   end
   
   def meals
@@ -48,6 +48,5 @@ class Customer
     oldest_customer
   end
  
-end
   
 
